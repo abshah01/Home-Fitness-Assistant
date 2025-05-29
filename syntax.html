@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Fitness Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>🏠 Home Fitness Assistant</h1>
+      <p>Your personal fitness coach at home</p>
+    </header>
+
+    <main>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="userNumber">User Number (will be assigned):</label>
+          <input type="text" id="userNumber" disabled placeholder="Will be assigned on registration" />
+        </div>
+
+        <div class="form-group">
+          <label for="photo">Upload Full Body Photo</label>
+          <input type="file" id="photo" accept="image/*" required />
+        </div>
+
+        <div class="form-group">
+          <label for="height">Height (cm or ft'in")</label>
+          <input type="text" id="height" placeholder="Example: 170 or 5'7&quot;" required />
+        </div>
+
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" min="20" max="300" required />
+        </div>
+
+        <div class="form-group">
+          <label for="bodyType">Current Body Type</label>
+          <select id="bodyType" required>
+            <option value="" disabled selected>Select your body type</option>
+            <option value="chubby">Chubby</option>
+            <option value="slim">Slim</option>
+            <option value="bulk">Bulk</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="goal">Fitness Goal</label>
+          <select id="goal" required>
+            <option value="" disabled selected>Select your goal</option>
+            <option value="fit">Fit</option>
+            <option value="sixpack">Six Pack</option>
+            <option value="bodybuilder">Body Builder (Home)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="alarmTime">Set Daily Workout Alarm (24hr format, e.g. 18:30)</label>
+          <input type="time" id="alarmTime" required />
+        </div>
+
+        <button type="submit" id="startBtn">Start Workout Plan</button>
+      </form>
+
+      <section id="planSection" class="hidden">
+        <h2>Your Personalized Plan</h2>
+        <div id="planDetails"></div>
+        <button id="startWorkoutBtn">Start Workout Session</button>
+      </section>
+
+      <section id="workoutSession" class="hidden">
+        <h2>Workout Session</h2>
+        <div id="currentExercise"></div>
+        <div id="timerDisplay"></div>
+        <button id="finishExerciseBtn" disabled>Finished Exercise</button>
+        <div id="motivationMessage"></div>
+      </section>
+    </main>
+
+    <audio id="alarmSound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
